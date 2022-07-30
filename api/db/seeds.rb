@@ -1,3 +1,5 @@
+Post.delete_all
+
 Post.create!(
     [
       {
