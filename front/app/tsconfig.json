@@ -6,6 +6,11 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/components/*": ["components/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -15,6 +20,7 @@
     "esModuleInterop": true,
     "module": "esnext",
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "isolatedModules": true,
     "jsx": "preserve"
   },
