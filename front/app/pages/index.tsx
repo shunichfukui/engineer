@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { GetStaticProps } from "next";
+import { GetStaticProps } from 'next';
 
 type Post = {
   id: number;
@@ -26,15 +26,16 @@ const Home: FC<Props> = (props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const response = await fetch("http://api:3000/posts", {method: "GET"});
-  const json = await response.json();
+  const posts = await response.json();
 
   return {
     props: {
-      posts: json
+      posts: posts
     },
+    revalidate: 10,
   };
-}
+};
 
 export default Home;
