@@ -1,22 +1,20 @@
-import React, { FC } from "react";
-import { GetStaticProps } from 'next';
+import React from "react";
+import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 
 type Post = {
   id: number;
   title: string;
 }
 
-type Props = {
-  posts: Post[];
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Home: FC<Props> = (props) => {
+const Home: NextPage<Props> = (props) => {
   return (
     <div>
       <h2>POSTの一覧</h2>
       <ul>
         {props.posts.map((post) =>
-          <li>
+          <li key={post.id}>
             <p>{post.id}.</p>
             <p>{post.title}</p>
           </li>
@@ -26,9 +24,15 @@ const Home: FC<Props> = (props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const response = await fetch("http://api:3000/posts", {method: "GET"});
-  const posts = await response.json();
+  const posts: Post[] = await response.json();
+  
+  if (!posts) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
