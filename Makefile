@@ -7,8 +7,8 @@ up-d: ## docker-compose up -d
 down: ## docker-compose down
 	docker-compose down
 
-c: ## docker-compose exec backend rails c
-	docker-compose exec backend rails c
+c: ## docker-compose exec api rails c
+	docker-compose exec api rails c
 
 migrate: ## docker-compose run --rm api bundle exec rails db:migrate
 	docker-compose run --rm api bundle exec rails db:migrate

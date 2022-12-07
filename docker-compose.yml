@@ -9,7 +9,7 @@ services:
       MYSQL_DATABASE: engineer
       MYSQL_PASSWORD: password
     ports:
-      - 4306:3306
+      - 13306:3306
     volumes:
       - mysql-db:/var/lib/mysql
   api:
