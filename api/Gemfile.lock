@@ -56,6 +56,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    alba (2.1.0)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -87,6 +88,7 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    oj (3.13.23)
     puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -147,10 +149,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alba
   bootsnap (>= 1.4.2)
   byebug
   listen (~> 3.2)
   mysql2 (>= 0.4.4)
+  oj
   puma (~> 4.1)
   rails (~> 6.0.5, >= 6.0.5.1)
   spring
@@ -158,7 +162,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 2.7.7p221
 
 BUNDLED WITH
    2.1.4

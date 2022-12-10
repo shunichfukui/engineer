@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: PostResource.new(@posts).serialize
   end
 
   # GET /posts/1
