@@ -24,3 +24,12 @@ build-cache-clear: ## docker-compose build --no-cache
 
 attach-api: ## docker attach engineer_api_1
 	docker attach engineer_api_1
+
+rubocop: ## docker-compose run --rm api bundle exec rubocop
+	docker-compose run --rm api bundle exec rubocop
+
+rubocop-a: ## docker-compose run --rm api bundle exec rubocop -a
+	docker-compose run --rm api bundle exec rubocop -a
+
+rspec: ## rspec
+	docker-compose run --rm api bundle exec rspec
