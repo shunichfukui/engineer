@@ -2,16 +2,18 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="text-gray-600 body-font bg-blue-500">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <header className="bg-white container z-10">
+      <div className="flex justify-between md:text-lg phone:text-xs pt-8 fixed top-0 bg-white">
         <Link href={'/'} passHref>
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <span className="ml-3 text-xl text-white">ロゴ</span>
-          </a>
+          <a className="font-gotham_medium text-main-black text-uf-regular">テストタイトル</a>
         </Link>
-        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 text-white hover:text-gray-900">Profile</a>
-        </nav>
+        <div className="flex font-gotham_book text-base text-main-black justify-evenly w-[250px] phone:w-[200px]">
+          <Link href={'/portfolio'} passHref>
+            <a className="hover:text-sub-black" itemProp="url">
+              portfolio一覧
+            </a>
+          </Link>
+        </div>
       </div>
     </header>
   )

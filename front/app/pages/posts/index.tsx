@@ -1,10 +1,6 @@
 import React from "react";
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
-
-type Post = {
-  id: number;
-  title: string;
-}
+import { TPost } from "types";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -26,7 +22,7 @@ const Home: NextPage<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const response = await fetch("http://api:3000/posts", {method: "GET"});
-  const posts: Post[] = await response.json();
+  const posts: TPost[] = await response.json();
   
   if (!posts) {
     return {
