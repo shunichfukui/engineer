@@ -8,3 +8,5 @@ frontend
 - Next.js 12.2.3
 - React 18.2.0
 - Typescript 4.7.4
+
+個人プロジェクトのテストリポジトリ
