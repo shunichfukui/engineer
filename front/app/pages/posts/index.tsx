@@ -21,7 +21,7 @@ const Home: NextPage<Props> = (props) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
-  const response = await fetch("http://api:3000/posts", {method: "GET"});
+  const response = await fetch("http://api:3000/api/v1/posts", {method: "GET"});
   const posts: TPost[] = await response.json();
   
   if (!posts) {
