@@ -5,9 +5,10 @@ import { TPost } from "types";
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const Home: NextPage<Props> = (props) => {
-  return (
-    <div>
-      <h2>POSTの一覧</h2>
+  const renderPostContents = () => {
+    if (props.posts) return null
+
+    return (
       <ul>
         {props.posts.map((post) =>
           <li key={post.id}>
@@ -16,6 +17,13 @@ const Home: NextPage<Props> = (props) => {
           </li>
         )}
       </ul>
+    )
+  }
+
+  return (
+    <div>
+      <h2>POSTの一覧</h2>
+      {renderPostContents()}
     </div>
   )
 }
