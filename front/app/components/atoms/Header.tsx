@@ -7,13 +7,11 @@ export default function Header() {
         <Link href={'/'} passHref>
           <a className="font-gotham_medium text-main-black text-uf-regular">テストタイトル</a>
         </Link>
-        <div className="flex font-gotham_book text-base text-main-black justify-evenly w-[250px] phone:w-[200px]">
-          <Link href={'/portfolio'} passHref>
-            <a className="hover:text-sub-black" itemProp="url">
-              portfolio一覧
-            </a>
-          </Link>
-        </div>
+        <Link href={'/portfolio'} passHref>
+          <a className="hover:text-sub-black" itemProp="url">
+            ポートフォリオ一覧
+          </a>
+        </Link>
       </div>
     </header>
   )

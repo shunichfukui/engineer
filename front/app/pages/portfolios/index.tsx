@@ -4,7 +4,7 @@ import { TPost } from "types";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Home: NextPage<Props> = (props) => {
+const PostIndex: NextPage<Props> = (props) => {
   const renderPostContents = () => {
     if (props.posts.length < 1) return null
 
@@ -22,7 +22,7 @@ const Home: NextPage<Props> = (props) => {
 
   return (
     <div>
-      <h2>POSTの一覧</h2>
+      <h2>ポートフォリオ一覧</h2>
       {renderPostContents()}
     </div>
   )
@@ -40,4 +40,4 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   };
 };
 
-export default Home;
+export default PostIndex;
