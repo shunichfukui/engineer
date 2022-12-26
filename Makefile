@@ -13,6 +13,9 @@ c: ## docker-compose exec api rails c
 migrate: ## docker-compose run --rm api bundle exec rails db:migrate
 	docker-compose run --rm api bundle exec rails db:migrate
 
+db-reset: ## docker-compose run --rm api bundle exec rails db:reset
+	docker-compose run --rm api bundle exec rails db:reset
+
 db-seed: ## docker-compose run --rm api bundle exec rails db:seed
 	docker-compose run --rm api bundle exec rails db:seed
 
