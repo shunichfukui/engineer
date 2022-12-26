@@ -10,8 +10,11 @@ down: ## docker-compose down
 c: ## docker-compose exec api rails c
 	docker-compose exec api rails c
 
-migrate: ## docker-compose run --rm api bundle exec rails db:migrate
+db-migrate: ## docker-compose run --rm api bundle exec rails db:migrate
 	docker-compose run --rm api bundle exec rails db:migrate
+
+db-rollback: ## docker-compose run --rm api bundle exec rails db:rollback
+	docker-compose run --rm api bundle exec rails db:rollback
 
 db-reset: ## docker-compose run --rm api bundle exec rails db:reset
 	docker-compose run --rm api bundle exec rails db:reset

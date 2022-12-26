@@ -1,19 +1,19 @@
 import React from "react";
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
-import { TPost } from "types";
+import { TPortfolio } from "types";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-const PostIndex: NextPage<Props> = (props) => {
-  const renderPostContents = () => {
-    if (props.posts.length < 1) return null
+const PortfolioIndex: NextPage<Props> = (props) => {
+  const renderPortfolioContents = () => {
+    if (props.portfolios.length < 1) return null
 
     return (
       <ul>
-        {props.posts.map((post) =>
-          <li key={post.id}>
-            <p>{post.id}.</p>
-            <p>{post.title}</p>
+        {props.portfolios.map((portfolio) =>
+          <li key={portfolio.id}>
+            <p>{portfolio.id}.</p>
+            <p>{portfolio.title}</p>
           </li>
         )}
       </ul>
@@ -23,21 +23,21 @@ const PostIndex: NextPage<Props> = (props) => {
   return (
     <div>
       <h2>ポートフォリオ一覧</h2>
-      {renderPostContents()}
+      {renderPortfolioContents()}
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
-  const response = await fetch("http://api:3000/api/v1/posts", {method: "GET"});
-  const posts: TPost[] = await response.json();
+  const response = await fetch("http://api:3000/api/v1/portfolios", {method: "GET"});
+  const portfolios: TPortfolio[] = await response.json();
 
   return {
     props: {
-      posts: posts.length > 0 ? posts : []
+      portfolios: portfolios.length > 0 ? portfolios : []
     },
     revalidate: 10,
   };
 };
 
-export default PostIndex;
+export default PortfolioIndex;
