@@ -1,6 +1,7 @@
 import React from "react";
 import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import { TPortfolio } from "types";
+import { ApiV1PortfoliosPath } from "utils/atoms";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -29,7 +30,7 @@ const PortfolioIndex: NextPage<Props> = (props) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
-  const response = await fetch("http://api:3000/api/v1/portfolios", {method: "GET"});
+  const response = await fetch(ApiV1PortfoliosPath(), {method: "GET"});
   const portfolios: TPortfolio[] = await response.json();
 
   return {
